@@ -12,8 +12,8 @@ API = config['API']['baseUrl']
 
 def stations(headers):
 
-    url = API + '/alerts/types'
+    url = API + '/stations/F1405/observations/latest?require_qc=false'
 
     # Make get request to API with headers
     response = requests.get(url, headers=headers)
-    return response.json()
+    return response.text
