@@ -1,6 +1,7 @@
 from flask import Flask
 import os
 import get_requests
+import json
 
 app = Flask(__name__)
 
@@ -17,4 +18,7 @@ def sananselmo():
 
     # Returns all accounts from owner
     response = get_requests.stations(HEADERS)
-    return response    
+    respObject = json.loads(response)
+
+    temperature = respObject["properties"]["temperature"]["value"]
+    return "<h1>Temperature " + str(temperature) + " </h1>"    
