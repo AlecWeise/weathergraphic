@@ -9,6 +9,12 @@ with open('config.json') as json_data_file:
 
 API = config['API']['baseUrl']
 
+def observations(headers):
+    url = API + '/stations?state=CA&limit=10'
+
+    # Make get request to API with headers
+    response = requests.get(url, headers=headers)
+    return response.text
 
 def stations(headers):
 
