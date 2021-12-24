@@ -19,14 +19,18 @@ def main():
     stations = respDictionary["observationStations"]
     return render_template('main.html', stations=stations)
 
-@app.route("/san-anselmo")
-def sananselmo():
+@app.route("/observations")
+def observations():
 
-    # Returns all accounts from owner
-    jsonStr = get_requests.stations(HEADERS)
-    respDictionary = json.loads(jsonStr)
+    stations = get_requests.stations(HEADERS)
 
-    temperature = respDictionary["properties"]["temperature"]["value"]
-    return "<h1>Temperature " + str(temperature) + " </h1>"    
+    responseStr = ""
+
+    for station in stations:
+        print(station)
+        temperature = station["properties"]["temperature"]["value"]
+        responseStr += "<h1>Temperature " + str(temperature) + " </h1>"
+
+    return responseStr
     
 

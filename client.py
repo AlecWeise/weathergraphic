@@ -9,7 +9,7 @@ HEADERS = {
 }
 
 # Returns all accounts from owner
-response = get_requests.stations(HEADERS)
+response = get_requests.stationIds(HEADERS)
 
 # print(response)
 
