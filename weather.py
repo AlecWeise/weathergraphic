@@ -24,13 +24,35 @@ def observations():
 
     stations = get_requests.stations(HEADERS)
 
-    responseStr = ""
+    responseStr = """
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Station</th>
+      <th scope="col">Temperature</th>
+      <th scope="col">Dewpoint</th>
+      <th scope="col">barometric Pressure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    """
 
     for station in stations:
         print(station)
         temperature = station["properties"]["temperature"]["value"]
-        responseStr += "<h1>Temperature " + str(temperature) + " </h1>"
+        stationLink = station["properties"]["station"]
+        fahrenheit = (temperature * 9/5) + 32
+        responseStr += "<h1>Station " + stationLink + "  Temperature " + str(fahrenheit) + " </h1>"
 
+    responseStr += """  </tbody>
+</table>
+"""
     return responseStr
     
 
