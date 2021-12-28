@@ -1,0 +1,21 @@
+{% extends 'station_observations.html' %}
+
+{% block observation_table %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Station</th>
+        <th scope="col">Temperature (fahrenheit)</th>
+        <th scope="col">Humidity</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for observation in observations%}
+        <td>{{observation.station.name}}</td>
+        <td>{{observation.temperature}}</td>
+        <td>{{observation.humidity}}</td>
+        </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock %}

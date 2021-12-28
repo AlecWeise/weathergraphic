@@ -1,0 +1,23 @@
+{% extends 'station_observations.html' %}
+
+{% block observation_table %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Station</th>
+        <th scope="col">Wind Direction</th>
+        <th scope="col">Wind Speed</th>
+        <th scope="col">Wind Gust</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for observation in observations%}
+        <td>{{observation.station.name}}</td>
+        <td>{{observation.wind_direction}}</td>
+        <td>{{observation.wind_speed}}</td>
+        <td>{{observation.wind_gust}}</td>
+        </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock %}

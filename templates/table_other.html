@@ -1,0 +1,26 @@
+{% extends 'station_observations.html' %}
+
+{% block observation_table %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Station</th>
+        <th scope="col">Dewpoint</th>
+        <th scope="col">Sea Level Pressure</th>
+        <th scope="col">Barometric Pressure</th>
+        <th scope="col">Visibility</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for observation in observations%}
+    <td>{{observation.station.name}}</td>
+    <td>{{observation.dewpoint}}</td>
+    <td>{{observation.sealevel_pressure}}</td>
+    <td>{{observation.barometric_pressure}}</td>
+    <td>{{observation.visibility}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock %}
+
