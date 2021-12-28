@@ -57,13 +57,14 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Observations</a>
+                    <a class="nav-link
+                    {% if current=='observations' %} active {% endif %}"  href="/observations">Observations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Map</a>
+                    <a class="nav-link {% if current=='map' %} active {% endif %}" href="/map">Map</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">About</a>
+                    <a class="nav-link {% if current=='about' %} active {% endif %}" href="/about">About</a>
                 </li>
             </ul>
         </div>
@@ -72,21 +73,13 @@
 
 <main class="container">
     <div class="bg-light p-5 rounded">
-        <h1>Stations</h1>
-        <ul>
-            {%for station in stations%}
-            <li> <a href="{{station}}">{{station}}</a></li>
-            {%endfor%}
-        </ul>
+    {% block content %}{% endblock %}
     </div>
 </main>
-
 
 <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
-
 </body>
 </html>
 
