@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <h3><a class="navbar-brand" href="#">Alerts for California:</a></h3>
+  </div>
+</nav>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Headline</th>
+        <th scope="col">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for alert in alerts.features%}
+        <td>{{alert.properties.headline}}</td>
+        <td>{{alert.properties.description}}</td>
+        </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock %}
