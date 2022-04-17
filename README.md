@@ -1,6 +1,7 @@
 # weathergraphic
 
 ## How to run the Program
+* From the working directory export FLASK_APP=weather.py
 * flask run
 
 ## Installing packages

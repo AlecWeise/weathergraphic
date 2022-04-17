@@ -1,10 +1,25 @@
 from flask import Flask
 from flask import render_template
-import os
+
 import get_requests
-import json
-from viewmodel import StationObservation
+import csv
 from viewmodel import Station
+from viewmodel import StationObservation
+from zipcode import Zipcode
+
+zipcodes = {}
+
+with open('./resources/zip_code_database.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        print(row['zip'], row['latitude'], row['longitude'])
+        zipcode = Zipcode(
+            zip=row['zip'],
+            state=row['state'],
+            county=row['county'],
+            latitude=row['latitude'],
+            longitude=row['longitude']
+        )
 
 app = Flask(__name__)
 
