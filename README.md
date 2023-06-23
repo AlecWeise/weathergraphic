@@ -1,5 +1,10 @@
 # weathergraphic
 
+## Install Flask
+*  python3 -m venv .venv
+* . .venv/bin/activate
+* pip install Flask
+
 ## How to run the Program
 * From the working directory export FLASK_APP=weather.py
 * flask run
